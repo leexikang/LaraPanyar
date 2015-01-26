@@ -1,0 +1,117 @@
+html {
+  font-family: sans-serif; }
+
+
+
+header {
+
+  background-color: #00C853;
+  border-radius: 0 0 1px 1px;
+
+}
+
+header ul{
+
+    float: right;
+    padding: 0.5em;
+    font-size: 1.3em;
+    font-weight: bold;
+    list-style: none;
+}
+
+header a{
+
+    text-decoration: none;
+    color: white;
+
+}
+
+.navbar-brand {
+    
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.logo:hover{
+
+    color:white;
+    text-decoration: none;
+}
+
+.category ul{
+
+}
+
+.category ul li a{
+
+    color: #7a7a7a;
+    font-family: sans-serif;
+}
+
+.category li:hover{
+
+    color: #1C7891;
+
+    }
+.element{
+
+    margin-top: 3em;
+    margin-left: 4em;
+    border-bottom:  2px solid #eaeaea;
+    line-height: 1.6em;
+
+}
+.element:hover{
+
+    border-color: #00C853;
+}
+.element img {
+    width: 100%;
+    height: 200px;
+
+}
+
+.element span{
+
+    color: #009ead;
+    font-size: 1.2em;
+}
+
+footer{
+
+    height: 10em;
+    background-color: #006064;
+}
+
+section.content{
+
+    min-height: 40em;
+    border-left: 2px solid #eaeaea;
+    overflow: hidden;
+
+     }
+.userNav a{
+    color: #009EAD;
+    font-size: 1.2em;
+}
+
+.custom-nav{
+  background-color: #00C853;
+  border-radius: 0;
+}
+
+.navbar-brand{
+    color: white;
+}
+.navbar-link{
+    font-size: 1.3em; 
+    font-weight: bold;
+    color:white;
+    padding-right: 3px;
+
+}
+
+.img{
+    width: 100%; !important 
+}
+
