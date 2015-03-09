@@ -6,17 +6,29 @@
 	<div class='row'>
 		<div class='col-md-6 col-md-push-1'>
 			 {{ Form::open(array(
+			 	'files' => 'true',
 			 	'action' => 'CoursesController@store',
 				'class' => 'form-horizontal'
 				)) }}
 
-		{{Form::hidden('user_id', '11')}}
+		{{Form::hidden('user_id', Auth::id())}}
 				<div class="form-group">
 					{{ Form::label('name', 'Name:', array('class' => 'col-md-4 control-label')) }}
 					<div class="col-md-7 col-md-offset-1">
 					{{ Form::text('name', null, array('class' => 'form-control'))}}
-						<span></span>
+					<div class="alert alert-danger" role="alert">
+						<span class="alert alert-danger" role="alert">{{ $errors->first('name') }} </span>
+					</div>
+						
 					</div>	
+				</div>
+
+				<div class="form-group">
+					{{ Form::label('image', 'Choose image for your course', array('class' => 'col-md-4 control-label')) }}
+					<div class="col-md-7 col-md-offset-1">
+					{{ Form::file('image', null, array('class' => 'form-control'))}}
+					</div>
+						
 				</div>
 
 				<div class="form-group">
@@ -66,7 +78,7 @@
 					{{ Form::label('startDate', 'Start Date:', array('class' => 'col-md-4 control-label')) }}
 					<div class="col-md-7 col-md-offset-1">
 						{{ Form::text('startDate', null, array('class' => 'form-control datepicker'))}}
-						<span></span>
+						<span>{{ $errors->first('startDate') }}</span>
 					</div>	
 				</div>
 
@@ -74,7 +86,7 @@
 					{{ Form::label('endDate', 'End Date:', array('class' => 'col-md-4 control-label')) }}
 					<div class="col-md-7 col-md-offset-1">
 						{{ Form::text('endDate', null, array('class' => 'form-control datepicker'))}}
-						<span></span>
+						<span>{{ $errors->first('endDate') }}</span>
 					</div>	
 				</div>
     				<div class='col-md-offset-2'>

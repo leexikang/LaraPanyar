@@ -10,9 +10,9 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-Event::listen('illuminate.query', function($sql){
-	var_dump($sql);
-});
+// Event::listen('illuminate.query', function($sql){
+// 	var_dump($sql);
+// });
 
 Route::get('/', array( "as" => "home", "uses" => "CoursesController@index") );
 

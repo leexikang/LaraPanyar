@@ -1,11 +1,11 @@
 @extends('layouts.user')
-
+	
 @section('content')
 	<div class='container'>
 	<div class='row'>
 		<div class='col-md-7'>
 		<h1> {{ $course->name }} </h1>
-		{{ HTML::image('image/Graphic-Design.jpg', 'Course Image', 
+		{{ HTML::image('images/'. $course->photo, 'Course Image', 
 						array('class' => 'img-responsive img-thumbnail') ) }}
 	
 		<h3> About the Course </h3>
@@ -26,6 +26,8 @@
   			<dd> {{ $course['user']->address }} </dd><br/>
   			<dt> Email: </dt>
   			<dd> {{ $course['user']->email }} </dd><br/>
+  			<dt> Note: </dt>
+  			<dd> {{ $course->note }} </dd>
 		</dl>
 		<h2> Center Detail </h2>
 		<p class='text-justify'> {{ $course['user']->intro }} </p>
