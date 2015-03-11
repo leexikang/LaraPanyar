@@ -16,14 +16,16 @@ class UsersTableSeeder extends Seeder {
 				'name' => $faker->username,
 				'password' => $faker->word,
 				'email' => $faker->email,
-				'address' => $faker->address
+				'address' => $faker->address,
+				'intro' => $faker->paragraph(3)
 				]) ;
 		}
 		User::create([
 			'name' => 'MinSan', 
 			'password' => '123', 
 			'email' => 'minsan@gmail.com', 
-			'address' => $faker->address
+			'address' => $faker->address,
+			'intro' => $faker->paragraph(3)
 			]) ;
 	}
 }

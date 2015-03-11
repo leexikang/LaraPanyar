@@ -3,11 +3,12 @@
 @section('content')
 	<div class='container'>
 	<div class='row'>
+
+
 		<div class='col-md-7'>
 		<h1> {{ $course->name }} </h1>
 		{{ HTML::image('images/'. $course->photo, 'Course Image', 
 						array('class' => 'img-responsive img-thumbnail') ) }}
-	
 		<h3> About the Course </h3>
 		<p class="text-justify"> {{ $course->description }} </p>
 		<br/>
@@ -29,8 +30,11 @@
   			<dt> Note: </dt>
   			<dd> {{ $course->note }} </dd>
 		</dl>
-		<h2> Center Detail </h2>
+		<h2> Center Detail</h2>
 		<p class='text-justify'> {{ $course['user']->intro }} </p>
+
+    	<button class="btn btn-primary"> Edit Course </button>	
+
 		</div>
 	</div>
 	</div>
