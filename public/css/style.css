@@ -115,3 +115,9 @@ section.content{
     width: 100%; !important 
 }
 
+.btn-login{
+
+    background-color:#00C853;
+    font-size: 1.2em;
+
+}
