@@ -61,13 +61,7 @@ class UsersController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		$input = Input::all();
-		$user = User::find($id);
-		$user->email = $input['email'];
-		$user->address = $input['address'];
-		$user->intro = $input['intro'];
-		$user->save();
-		return Redirect::back();	
+	
 	}
 
 
@@ -79,7 +73,13 @@ class UsersController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$input = Input::all();
+		$user = User::find($id);
+		$user->email = $input['email'];
+		$user->address = $input['address'];
+		$user->intro = $input['intro'];
+		$user->save();
+		return Redirect::back();
 	}
 
 

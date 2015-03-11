@@ -7,8 +7,8 @@
 
 			<h1> {{ Auth::user()->name }}	</h1>
 			 {{ Form::open(array(
-			 	'method' => 'GET',
-			 	'action' => array('users.edit', $user->id),
+			 	'method' => 'PUT',
+			 	'action' => array('users.update', $user->id),
 				'class' => 'form-horizontal'
 				)) }}
 

@@ -9,4 +9,5 @@ class UserTest extends TestCase {
 		$this->assertResponseOk();
 	}
 
+
 }

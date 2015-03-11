@@ -106,8 +106,10 @@ class CoursesController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+	
+
 	}
+
 
 
 	/**
