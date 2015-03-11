@@ -33,7 +33,7 @@
 		<h2> Center Detail</h2>
 		<p class='text-justify'> {{ $course['user']->intro }} </p>
 
-    	<button class="btn btn-primary"> Edit Course </button>	
+    	<button class="btn"> {{ link_to_action("CoursesController@edit", "Edit Course", null) }}</button>	
 
 		</div>
 	</div>

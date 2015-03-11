@@ -36,7 +36,7 @@ class CoursesController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('users.createCourse');
+		return View::make('courses.createCourse');
 	}
 
 
@@ -106,7 +106,9 @@ class CoursesController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-	
+
+		$course = $this->course->findById($id);
+		return View::make('courses.editCourse', compact('course'));
 
 	}
 

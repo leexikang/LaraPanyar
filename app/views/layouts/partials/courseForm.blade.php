@@ -1,17 +1,4 @@
-@extends('layouts.user')
-
-@section('content')
-
-
-	<div class='row'>
-		<div class='col-md-6 col-md-push-1'>
-			 {{ Form::open(array(
-			 	'files' => 'true',
-			 	'action' => 'CoursesController@store',
-				'class' => 'form-horizontal'
-				)) }}
-
-		{{Form::hidden('user_id', Auth::id())}}
+	{{Form::hidden('user_id', Auth::id())}}
 				<div class="form-group">
 					{{ Form::label('name', 'Name:', array('class' => 'col-md-4 control-label')) }}
 					<div class="col-md-7 col-md-offset-1">
@@ -92,12 +79,3 @@
     				<div class='col-md-offset-2'>
 			{{ Form::submit('Edit', array( 'class' => 'col-xs-2 btn btn-primary') ) }}
 			</div>
-				{{ Form::close() }}
-
-			</div>
-			</div>
-		</div>
-
-		@stop
-
-
