@@ -23,7 +23,7 @@
 				</div>
 				<div class="form-group">
 
-					{{ Form::submit('Login', array('class' => 'btn btn-block btn-lg btn-login') )}}
+					{{ Form::submit('Login', array('class' => 'btn btn-block btn-lg btn-panyar') )}}
 
 				</div>
 
