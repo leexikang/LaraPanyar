@@ -36,7 +36,7 @@ class CoursesController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('courses.createCourse');
+		return View::make('courses.create');
 	}
 
 
@@ -93,7 +93,7 @@ class CoursesController extends \BaseController {
 	{
 
 		$course = Course::with('user')->where('id', $id)->first();
-		return View::make('courses.viewCourse', compact('course'));
+		return View::make('courses.show', compact('course'));
 
 	}
 
@@ -108,7 +108,7 @@ class CoursesController extends \BaseController {
 	{
 
 		$course = $this->course->findById($id);
-		return View::make('courses.editCourse', compact('course'));
+		return View::make('courses.edit', compact('course'));
 
 	}
 

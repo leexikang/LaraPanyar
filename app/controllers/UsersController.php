@@ -40,12 +40,13 @@ class UsersController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($user)
+	public function show($name)
 	{
-		$user  = User::whereName($user)->first();
-		return View::make('users.profile', compact('user') );
+		$user  = User::whereName($name)->first();
+		return View::make("users.show", compact("user") );
 	}
 
+	
 	// public function userCourses($name){
 
 	// 	$courses = User::where('name', $name)->first()->courses;
@@ -59,9 +60,10 @@ class UsersController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit($name)
 	{
-	
+		$user  = User::whereName($name)->first();
+		return View::make('users.edit', compact('user') );
 	}
 
 

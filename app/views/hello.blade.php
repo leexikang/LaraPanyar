@@ -11,8 +11,8 @@
 				<span> {{ $course->name }} </span><br/>
 				<span> {{ $course->startTime}} To {{ $course->endTime}} </span><br/>
 				<span> {{ $course->startDate}} To {{$course->endDate}}</span><br/>
-				<span> {{ $course['user']->name }}</span><br/>
-				<span> Veiw Details </span> <br/>
+				<span> {{ link_to_action("UsersController@show", $name = $course['user']->name, $name) }}</span><br/>
+				<span> {{ link_to_action("CoursesController@show", "View Details", $course->id )}} </span> <br/>
 				</div>
 				@endforeach
 				
