@@ -122,7 +122,12 @@ class CoursesController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+
+		$course = $this->course->findById($id);
+		$course->fill(Input::all());
+		return View::make('courses.viewCourse', compact('course'));
+
+
 	}
 
 

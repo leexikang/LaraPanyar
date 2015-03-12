@@ -5,10 +5,11 @@
 
 	<div class='row'>
 		<div class='col-md-6 col-md-push-1'>
-			 {{ Form::open(array(
-			 	'method' => 'put',
+			 {{ Form::model($course,
+			 	array(
+			 	'method' => 'PUT',
 			 	'files' => 'true',
-			 	'action' => 'CoursesController@update',
+			 	'action' => ['CoursesController@update', $course->id],
 				'class' => 'form-horizontal'
 				)) }}
 

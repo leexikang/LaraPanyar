@@ -4,7 +4,7 @@ use Carbon\Carbon;
 
 class Course extends Eloquent{
 
-	protected $guarded = [];
+	protected $guarded = ['id', 'created_at', 'updated_at'];
 
 
 	public function user(){
