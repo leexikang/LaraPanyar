@@ -1,7 +1,7 @@
 <?php
 
-use Panyar\Repositories\CoursesRepository;
-use Panyar\Services\Validation\CourseValidator as Validator;
+use Panyar\Repositories\CoursesRepositoryInterface;
+use Panyar\Services\Validation\CourseValidator;
 
 class CoursesController extends \BaseController {
 
@@ -13,7 +13,7 @@ class CoursesController extends \BaseController {
 	protected $course;
 	protected $validator;
 
-	public function __construct(CoursesRepository $course, Validator $validator ){
+	public function __construct(CoursesRepositoryInterface $course, CourseValidator $validator ){
 
 		$this->course = $course;
 		$this->validator = $validator;
@@ -27,6 +27,7 @@ class CoursesController extends \BaseController {
 		$courses = Paginator::make($data->items, $data->totalItems, 6);
 		return View::make('hello', compact('courses') );
 	}
+
 
 
 	/**
@@ -50,36 +51,16 @@ class CoursesController extends \BaseController {
 
 		 if(   $this->validator->validate(Input::all() ) ){
 
-		 	return Redirect::back()->withErrors($this->validator->errors())->withInput();
+//		 	return Redirect::back()->withErrors($this->validator->errors())->withInput();
 		// //'Time' => array('regex:/^([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9]|60)$/')
+	 	return "Oh My God";
 
 		 }
 
-		 $course = new Course();
-		 $course->user_id = Input::get('user_id');
-		 $course->description = Input::get('description');
-		 $course->note = Input::get('note');
-		 $course->name = Input::get('name');
-		 $course->startTime = Input::get('startTime');
-		 $course->endTime = Input::get('endTime');
-		 $course->startDate = Input::get('startDate');
-		 $course->endDate = Input::get('endDate');
-		 $course->fee = Input::get('fee');
+		  return $this->course->create(Input::all());
 
-
-
-
-
-		if( Input::hasFile('image')){
-
-		  	$file = Input::file('image');
-		  	$name = time() . '-' . $file->getClientOriginalName();
-		  	$file->move(public_path().'/images/', $name);
-		  	$course->photo = $name;
-		  }
-		  $course->save();
-
-		 //return $course; 
+		  //return Redirect::route('courses.index');
+ 
 	}
 
 

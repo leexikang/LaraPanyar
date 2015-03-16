@@ -6,7 +6,7 @@ class BackendServiceProvider extends ServiceProvider{
 
 	public function register(){
 
-		$this->app->bind('Panyar\Repositories\CoursesrRepositoryInterface', 
+		$this->app->bind('Panyar\Repositories\CoursesRepositoryInterface', 
 			 		    'Panyar\Repositories\CoursesRepository');
 
 	}

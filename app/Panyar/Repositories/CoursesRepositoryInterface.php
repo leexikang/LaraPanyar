@@ -1,6 +1,8 @@
-<?php namespace Panyar\Repositories;
+<?php namespace Panyar\Repositories; 
 
-interface CoursesReposistoryInterface{
+interface CoursesRepositoryInterface{
 
+	public function create($input);
+	public function getAll();
 
 }
