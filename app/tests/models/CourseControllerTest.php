@@ -44,8 +44,16 @@ class CourseControllerTest extends TestCase{
         $input['fee'] = '';
 
         $this->validator
-            ->shouldReceive('validate')->once()->andReturn(true);
+            ->shouldReceive('validate')
+            ->once()
+            ->andReturn(true);
         $this->mock->shouldReceive('create')->never();
+
+        $this->validator
+            ->shouldReceive('errors')
+            ->once()
+            ->andReturn(array());
+
         $response = $this->call('POST', 'courses');
 
     }

@@ -51,16 +51,15 @@ class CoursesController extends \BaseController {
 
 		 if(   $this->validator->validate(Input::all() ) ){
 
-//		 	return Redirect::back()->withErrors($this->validator->errors())->withInput();
-		// //'Time' => array('regex:/^([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9]|60)$/')
-	 	return "Oh My God";
+		 	return Redirect::route("courses.create")->withErrors($this->validator->errors())->withInput();
 
 		 }
 
-		  return $this->course->create(Input::all());
 
-		  //return Redirect::route('courses.index');
- 
+        $this->course->create(Input::all());
+
+		  return Redirect::to(Auth::user()->name ."/courses");
+
 	}
 
 

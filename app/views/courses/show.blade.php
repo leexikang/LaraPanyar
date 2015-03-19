@@ -7,7 +7,7 @@
 
 		<div class='col-md-7'>
 		<h1> {{ $course->name }} </h1>
-		{{ HTML::image('images/'. $course->photo, 'Course Image', 
+		{{ HTML::image('images/'. $course->photo, 'Course Image',
 						array('class' => 'img-responsive img-thumbnail') ) }}
 		<h3> About the Course </h3>
 		<p class="text-justify"> {{ $course->description }} </p>

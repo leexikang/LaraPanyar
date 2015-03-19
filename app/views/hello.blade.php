@@ -6,8 +6,10 @@
 @foreach( array_chunk($courses->all(), 3) as $row) 
 					<div class='row'>
 				@foreach( $row as $course)
-				<div class='col-md-3 element'> 
-				<img src="{{ $course->photo }}" class="img-responsive"><br/><br/>
+				<div class='col-md-3 element'>
+                 {{ HTML::image('images/'. $course->photo, 'Course Image',
+						array('class' => 'img-responsive') ) }}
+
 				<span> {{ $course->name }} </span><br/>
 				<span> {{ $course->startTime}} To {{ $course->endTime}} </span><br/>
 				<span> {{ $course->startDate}} To {{$course->endDate}}</span><br/>

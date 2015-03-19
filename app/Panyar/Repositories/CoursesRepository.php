@@ -13,6 +13,7 @@ Class CoursesRepository implements CoursesRepositoryInterface{
 
 		return Course::findOrFail($id);
 	}
+
 	public function make( array $with = array()){
 
 		return Course::with($with);
@@ -20,31 +21,28 @@ Class CoursesRepository implements CoursesRepositoryInterface{
 
 	public function  create($input){
 
-        var_dump($input);
 
-		//  $course = new Course();
-		//  $course->user_id = $input['user_id'];
-		//  $course->description = $input['description'];
-		//  $course->note = $input['note'];
-		//  $course->name = $input['name'];
-		//  $course->startTime = $input['startTime'];
-		//  $course->endTime = $input['endTime'];
-		//  $course->startDate = $input['startDate'];
-		//  $course->endDate = $input['endDate'];
-		//  $course->fee = $input['fee'];
+		  $course = new Course();
+		  $course->user_id = $input['user_id'];
+		  $course->description = $input['description'];
+		  $course->note = $input['note'];
+		  $course->name = $input['name'];
+		  $course->startTime = $input['startTime'];
+		  $course->endTime = $input['endTime'];
+		  $course->startDate = $input['startDate'];
+		  $course->endDate = $input['endDate'];
+		  $course->fee = $input['fee'];
 
+        if( isset($input['image']) ){
 
-		// // if( Input::hasFile('image')){
+           $file = $input['image'];
+           $name = time() . '-' . $file->getClientOriginalName();
+		   $file->move(public_path().'/images/', $name);
+		   $course->photo = $name;
+        }
 
-		// //   	$file = Input::file('image');
-		// //   	$name = time() . '-' . $file->getClientOriginalName();
-		// //   	$file->move(public_path().'/images/', $name);
-		// //   	$course->photo = $name;
-		// //   }
-		
-		// $course->save();
-
-		// return $course;
+        $course->save();
+        return $course;
 	}
 
 
