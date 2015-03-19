@@ -5,7 +5,7 @@
 	<div class='row'>
 		<div class="col-md-5 col-md-offset-3">
 
-			{{ Form::open(array('route' => 'session.store',
+			{{ Form::open(array('action' => 'SessionController@store',
 				'method' => 'POST'
 				)) }}
 

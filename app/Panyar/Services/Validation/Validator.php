@@ -4,7 +4,7 @@ use Validator as V;
 
 abstract class Validator{
 
-	protected $erros;
+	protected $errors;
 	public static $rules;
 
 	public function validate($input){

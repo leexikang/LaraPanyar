@@ -20,6 +20,8 @@ Class CoursesRepository implements CoursesRepositoryInterface{
 
 	public function  create($input){
 
+        var_dump($input);
+
 		//  $course = new Course();
 		//  $course->user_id = $input['user_id'];
 		//  $course->description = $input['description'];
