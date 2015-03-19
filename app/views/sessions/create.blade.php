@@ -5,7 +5,7 @@
 	<div class='row'>
 		<div class="col-md-5 col-md-offset-3">
 
-			{{ Form::open(array('route' => 'session.store',
+			{{ Form::open(array('action' => 'SessionController@store',
 				'method' => 'POST'
 				)) }}
 
@@ -23,7 +23,7 @@
 				</div>
 				<div class="form-group">
 
-					{{ Form::submit('Login', array('class' => 'btn btn-block btn-lg btn-login') )}}
+					{{ Form::submit('Login', array('class' => 'btn btn-block btn-lg btn-panyar') )}}
 
 				</div>
 
@@ -48,4 +48,4 @@
 
 
 
-	
+

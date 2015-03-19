@@ -1,7 +1,7 @@
 <?php
 
-use Panyar\Repositories\CoursesRepository;
-use Panyar\Services\Validation\CourseValidator as Validator;
+use Panyar\Repositories\CoursesRepositoryInterface;
+use Panyar\Services\Validation\CourseValidator;
 
 class CoursesController extends \BaseController {
 
@@ -13,7 +13,7 @@ class CoursesController extends \BaseController {
 	protected $course;
 	protected $validator;
 
-	public function __construct(CoursesRepository $course, Validator $validator ){
+	public function __construct(CoursesRepositoryInterface $course, CourseValidator $validator ){
 
 		$this->course = $course;
 		$this->validator = $validator;
@@ -29,6 +29,7 @@ class CoursesController extends \BaseController {
 	}
 
 
+
 	/**
 	 * Show the form for creating a new resource.
 	 *
@@ -36,7 +37,7 @@ class CoursesController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('courses.createCourse');
+		return View::make('courses.create');
 	}
 
 
@@ -50,36 +51,15 @@ class CoursesController extends \BaseController {
 
 		 if(   $this->validator->validate(Input::all() ) ){
 
-		 	return Redirect::back()->withErrors($this->validator->errors())->withInput();
-		// //'Time' => array('regex:/^([01]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9]|60)$/')
+		 	return Redirect::route("courses.create")->withErrors($this->validator->errors())->withInput();
 
 		 }
 
-		 $course = new Course();
-		 $course->user_id = Input::get('user_id');
-		 $course->description = Input::get('description');
-		 $course->note = Input::get('note');
-		 $course->name = Input::get('name');
-		 $course->startTime = Input::get('startTime');
-		 $course->endTime = Input::get('endTime');
-		 $course->startDate = Input::get('startDate');
-		 $course->endDate = Input::get('endDate');
-		 $course->fee = Input::get('fee');
 
+        $this->course->create(Input::all());
 
+		  return Redirect::to(Auth::user()->name ."/courses");
 
-
-
-		if( Input::hasFile('image')){
-
-		  	$file = Input::file('image');
-		  	$name = time() . '-' . $file->getClientOriginalName();
-		  	$file->move(public_path().'/images/', $name);
-		  	$course->photo = $name;
-		  }
-		  $course->save();
-
-		 //return $course; 
 	}
 
 
@@ -93,7 +73,7 @@ class CoursesController extends \BaseController {
 	{
 
 		$course = Course::with('user')->where('id', $id)->first();
-		return View::make('courses.viewCourse', compact('course'));
+		return View::make('courses.show', compact('course'));
 
 	}
 
@@ -108,7 +88,7 @@ class CoursesController extends \BaseController {
 	{
 
 		$course = $this->course->findById($id);
-		return View::make('courses.editCourse', compact('course'));
+		return View::make('courses.edit', compact('course'));
 
 	}
 

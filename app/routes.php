@@ -13,6 +13,10 @@
 // Event::listen('illuminate.query', function($sql){
 // 	var_dump($sql);
 // });
+/** Sign up rote    */
+
+Route::get('/signup', "RegistrationController@index");
+Route::post('/signup', "RegistrationController@create");
 
 Route::get('/', array( "as" => "home", "uses" => "CoursesController@index") );
 
@@ -23,12 +27,12 @@ Route::resource("users", "UsersController");
 
 Route::group(array('before' => 'auth'), function(){
 Route::get("/{users}/courses", [
-			"as" => "users.courses", 
+			"as" => "users.courses",
 			"uses" => "CoursesController@usercourses"
 			]);
 
 Route::get("/{users}/profile", [
-			"as" => "users.profile", 
+			"as" => "users.profile",
 			"uses" => "UsersController@show"
 			]);
 Route::get("/courses/create",[
@@ -48,9 +52,9 @@ Route::get('/data',"CourseController@data");
 
 Route::get('/test', function(){
 
-	return $users = Course::with(array('user' => 
+	return $users = Course::with(array('user' =>
 		function($query)
-		{ $query->where('name', '=','MinSan'); 
+		{ $query->where('name', '=','MinSan');
 	}))->first();
 
 });

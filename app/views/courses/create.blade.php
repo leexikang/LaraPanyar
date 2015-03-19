@@ -6,6 +6,7 @@
 	<div class='row'>
 		<div class='col-md-6 col-md-push-1'>
 			 {{ Form::open(array(
+			 	'Method' => 'post',
 			 	'files' => 'true',
 			 	'action' => 'CoursesController@store',
 				'class' => 'form-horizontal'

@@ -2,7 +2,7 @@
 
 use Course;
 
-Class CoursesRepository{
+Class CoursesRepository implements CoursesRepositoryInterface{
 
 	public function getAll(){
 
@@ -13,9 +13,36 @@ Class CoursesRepository{
 
 		return Course::findOrFail($id);
 	}
+
 	public function make( array $with = array()){
 
 		return Course::with($with);
+	}
+
+	public function  create($input){
+
+
+		  $course = new Course();
+		  $course->user_id = $input['user_id'];
+		  $course->description = $input['description'];
+		  $course->note = $input['note'];
+		  $course->name = $input['name'];
+		  $course->startTime = $input['startTime'];
+		  $course->endTime = $input['endTime'];
+		  $course->startDate = $input['startDate'];
+		  $course->endDate = $input['endDate'];
+		  $course->fee = $input['fee'];
+
+        if( isset($input['image']) ){
+
+           $file = $input['image'];
+           $name = time() . '-' . $file->getClientOriginalName();
+		   $file->move(public_path().'/images/', $name);
+		   $course->photo = $name;
+        }
+
+        $course->save();
+        return $course;
 	}
 
 

@@ -35,7 +35,7 @@
 					{{ Form::textarea('intro', null, array('class' => 'form-control', 'row' => '8') )}}
 					</div>	
 				</div>
-				{{ Form::submit('Edit', array( 'class' => 'col-xs-2 btn btn-default') ) }}
+				{{ Form::submit('Edit', array( 'class' => 'col-xs-2 btn btn-panyar') ) }}
 				</div>
 				{{ Form::close() }}
 		</div>

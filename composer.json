@@ -46,6 +46,7 @@
 		"fzaninotto/faker": "dev-master",
 		"codeception/codeception": "~2.0",
 		"laracasts/testdummy": "~1.0",
-		"phpunit/phpunit": "4.0"
+		"phpunit/phpunit": "4.0",
+		"mockery/mockery": "dev-master"
 	}
 }

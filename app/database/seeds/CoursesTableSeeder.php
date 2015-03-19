@@ -9,18 +9,19 @@ class CoursesTableSeeder extends Seeder{
 		foreach ( range(1, 10) as $index){
 
 			Course::create([
-				'name' => $faker->sentence(5),
-				'description' => $faker->paragraph(3),
-				'note' => $faker->paragraph(1),
-				'startTime' => $faker->time(),
-				'endTime' => $faker->time(),
-				'startDate' => $faker->date(),
-				'endDate' => $faker->date(),
-				'fee' => $faker->numberBetween(1000, 100000),
-				'photo' => $faker->sentence(2),
-				'user_id' => $faker->numberBetween(1, 10)
+                'name' => $faker->sentence(5),
+                'description' => $faker->paragraph(3),
+                'note' => $faker->paragraph(1),
+                'startTime' => $faker->time(),
+                'endTime' => $faker->time(),
+                'startDate' => $faker->date(),
+                'endDate' => $faker->date(),
+                'fee' => $faker->numberBetween(1000, 100000),
+                'photo' => $faker->image($dir = "/home/xikang/Public/LaraPanyar/public/images",
+                                               $width = 640, $height = 480),
+                'user_id' => $faker->numberBetween(1, 10)
 
-				]);
+            ]);
 		}
 		foreach ( range(1, 6) as $index){
 
@@ -28,6 +29,7 @@ class CoursesTableSeeder extends Seeder{
 				'name' => $faker->sentence(5),
 				'description' => $faker->paragraph(3),
 				'note' => $faker->paragraph(1),
+
 				'startTime' => $faker->time(),
 				'endTime' => $faker->time(),
 				'startDate' => $faker->date(),

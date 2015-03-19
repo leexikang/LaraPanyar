@@ -29,7 +29,7 @@ class Course extends Eloquent{
 
 	 protected function formatReturnTime($value){
 
-	 	return date('h:i a', strtotime($value) ); 
+	 	return date('h:i a', strtotime($value) );
 
 	 }
 
@@ -41,37 +41,37 @@ class Course extends Eloquent{
 
 	public function setStartTimeAttribute($value){
 
-		$this->attributes['startTime'] = $this->formatTime($value); 
+		$this->attributes['startTime'] = $this->formatTime($value);
 	}
 
 	 public function getStartTimeAttribute($value){
 
-	 	return $this->formatReturnTime($value); 
+	 	return $this->formatReturnTime($value);
 	 }
 
-	
+
 
 	public function setEndTimeAttribute($value){
 
-		$this->attributes['endTime'] = $this->formatTime($value); 
+		$this->attributes['endTime'] = $this->formatTime($value);
 
 	}
 
 	public function getEndTimeAttribute($value){
 
-	 	return $this->formatReturnTime($value); 
+	 	return $this->formatReturnTime($value);
 	}
 
 	public function setStartDateAttribute($value){
 
-		$this->attributes['startDate'] = $this->formatDate($value); 
+		$this->attributes['startDate'] = $this->formatDate($value);
 
 	}
 
 	public function setEndDateAttribute($value){
 
-		$this->attributes['endDate'] = $this->formatDate($value); 
-		
+		$this->attributes['endDate'] = $this->formatDate($value);
+
 	}
 
 	public function getDescriptionAttribute($value){
@@ -79,4 +79,6 @@ class Course extends Eloquent{
 		$paragraph = nl2br($value);
 		return $paragraph;
 	}
+
+
 }

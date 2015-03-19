@@ -77,5 +77,5 @@
 					</div>	
 				</div>
     				<div class='col-md-offset-2'>
-			{{ Form::submit('Edit', array( 'class' => 'col-xs-2 btn btn-primary') ) }}
+			{{ Form::submit('Edit', array( 'class' => 'col-xs-2 btn btn-panyar') ) }}
 			</div>

@@ -13,7 +13,18 @@ class UsersController extends \BaseController {
 	}
 
 
-	/**
+    /**
+     * Store a newly created resource in storage.
+     *
+
+     * @return Response
+     */
+    public function store()
+    {
+        //
+    }
+
+    /**
 	 * Show the form for creating a new resource.
 	 *
 	 * @return Response
@@ -24,28 +35,18 @@ class UsersController extends \BaseController {
 
 
 	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
-	}
-
-
-	/**
 	 * Display the specified resource.
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($user)
+	public function show($name)
 	{
-		$user  = User::whereName($user)->first();
-		return View::make('users.profile', compact('user') );
+		$user  = User::whereName($name)->first();
+		return View::make("users.show", compact("user") );
 	}
 
+	
 	// public function userCourses($name){
 
 	// 	$courses = User::where('name', $name)->first()->courses;
@@ -59,9 +60,10 @@ class UsersController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit($name)
 	{
-	
+		$user  = User::whereName($name)->first();
+		return View::make('users.edit', compact('user') );
 	}
 
 
