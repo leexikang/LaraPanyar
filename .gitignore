@@ -8,3 +8,5 @@ composer.lock
 Thumbs.db
 /public/images
 .idea/
+
+tests/_output/*

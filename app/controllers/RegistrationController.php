@@ -34,6 +34,7 @@ class RegistrationController extends \BaseController {
 	 	  return Redirect::to("/signup")->withErrors($this->validator->errors())->withInput();
       }
         $this->user->create(Input::all());
+
 	}
 
 
