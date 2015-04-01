@@ -1,8 +1,8 @@
 @include("layouts.partials.header")
 @include("layouts.partials.nav")
-	<div class="container-fluid">
+	<div class="container">
 	<div class="row">
-		<section class="col-md-10 content">
+		<section class="col-md-12 ">
 			<div class="cotainer-fluid">
 
 			
@@ -12,7 +12,7 @@
 			</div>
 		</section>
 	</div>
-	</div>
+        </div>
 
 <br/> <br/>
 @include("layouts.partials.footer")	

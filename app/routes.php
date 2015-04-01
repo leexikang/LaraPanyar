@@ -54,5 +54,6 @@ Route::get("tags/{category}",[
 
 Route::get('/test', function(){
 
+    return View::make("layouts.partials.testnav");
 });
 
