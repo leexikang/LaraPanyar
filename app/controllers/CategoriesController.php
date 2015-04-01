@@ -1,14 +1,23 @@
 <?php
 
+use Panyar\Repositories\CategoryRepositoryInterface;
+
 class CategoriesController extends \BaseController {
 
-	/**
+    protected $category;
+    public function __construct( CategoryRepositoryInterface $category){
+
+    $this->category = $category;
+
+    }
+		/**
 	 * Display a listing of the resource.
 	 * GET /categories
 	 *
 	 * @return Response
 	 */
-	public function index()
+
+   public function index()
 	{
 		//
 	}
@@ -42,9 +51,13 @@ class CategoriesController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($name)
 	{
-		//
+
+        $page = Input::get('page');
+        $data = $this->category->getByPage($page, 6, $name);
+        $courses = Paginator::make($data->items, $data->totalItems, 6);
+		return View::make('hello', compact('courses'));
 	}
 
 	/**

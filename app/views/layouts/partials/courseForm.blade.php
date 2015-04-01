@@ -1,16 +1,19 @@
 	{{Form::hidden('user_id', Auth::id())}}
+
 				<div class="form-group">
 					{{ Form::label('name', 'Name:', array('class' => 'col-md-4 control-label')) }}
 					<div class="col-md-7 col-md-offset-1">
 					{{ Form::text('name', null, array('class' => 'form-control'))}}
+					@if($errors->has("name"))
 					<div class="alert alert-danger" role="alert">
 						<span class="alert alert-danger" role="alert">{{ $errors->first('name') }} </span>
 					</div>
-						
+					@endif
 					</div>	
 				</div>
 
 				<div class="form-group">
+
 					{{ Form::label('image', 'Choose image for your course', array('class' => 'col-md-4 control-label')) }}
 					<div class="col-md-7 col-md-offset-1">
 					{{ Form::file('image', null, array('class' => 'form-control'))}}
@@ -19,20 +22,25 @@
 				</div>
 
 				<div class="form-group">
+
 					{{ Form::label('description', 'Description:', array('class' => 'col-md-4 control-label')) }}
 					<div class="col-md-7 col-md-offset-1">
 					{{ Form::textarea('description', null, array('class' => 'form-control', 'rows' => '8') )}}
-					</div>	
+					</div>
+
 				</div>
 
 				<div class="form-group">
+
 					{{ Form::label('note', 'Note:', array('class' => 'col-md-4 control-label')) }}
 					<div class="col-md-7 col-md-offset-1">
 						{{ Form::textarea('note', null, array('class' => 'form-control', 'rows' => '3') )}}
-					</div>	
+					</div>
+
 				</div>
 
 				<div class="form-group">
+
 					{{ Form::label('fee', 'Fee:', array('class' => 'col-md-4 control-label')) }}
 					<div class="col-md-7 col-md-offset-1">
 						{{ Form::text('fee', null, array('class' => 'form-control', 'placeholder' => '$' ))}}
@@ -59,7 +67,15 @@
 						<span></span>
 					</div>	
 					</div>
- 
+
+ 			<div class="form-group ">
+
+					{{ Form::label('category', 'Category', array('class' => 'col-md-4 control-label')) }}
+					<div class="col-md-7 col-md-offset-1">
+                        {{ Form::select('category', Category::lists('name', 'id'), $category, array('class' => 'form-control') ) }}
+					</div>
+				</div>
+
 	
 			<div class="form-group">
 					{{ Form::label('startDate', 'Start Date:', array('class' => 'col-md-4 control-label')) }}

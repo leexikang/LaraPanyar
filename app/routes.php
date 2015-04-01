@@ -48,13 +48,11 @@ Route::get("/user/profile", function(){
 	return $user;
 });
 
-Route::get('/data',"CourseController@data");
+Route::get("tags/{category}",[
+	"as" => "courses.showByTag",
+	"uses" => "CoursesController@showByTag"]);
 
 Route::get('/test', function(){
 
-	return $users = Course::with(array('user' =>
-		function($query)
-		{ $query->where('name', '=','MinSan');
-	}))->first();
-
 });
+

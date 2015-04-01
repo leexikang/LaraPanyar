@@ -12,19 +12,17 @@ class Course extends Eloquent{
 		return $this->belongsTo('User', 'user_id');
 	}	
 
+	public function categories(){
+
+		return $this->belongsToMany('Category');
+	}
+
 
 	protected function formatTime($raw){
 
 		$time = Carbon::createFromFormat('g:i A', $raw);
 		return $time->format('H:i');
 
-	}
-
-
-	protected function formatDate($raw){
-
-		$date = Carbon::createFromFormat('m/d/Y', $raw);
-		return $date->format('Y-m-d');
 	}
 
 	 protected function formatReturnTime($value){
@@ -50,7 +48,6 @@ class Course extends Eloquent{
 	 }
 
 
-
 	public function setEndTimeAttribute($value){
 
 		$this->attributes['endTime'] = $this->formatTime($value);
@@ -62,17 +59,6 @@ class Course extends Eloquent{
 	 	return $this->formatReturnTime($value);
 	}
 
-	public function setStartDateAttribute($value){
-
-		$this->attributes['startDate'] = $this->formatDate($value);
-
-	}
-
-	public function setEndDateAttribute($value){
-
-		$this->attributes['endDate'] = $this->formatDate($value);
-
-	}
 
 	public function getDescriptionAttribute($value){
 

@@ -28,6 +28,15 @@ class CoursesController extends \BaseController {
 		return View::make('hello', compact('courses') );
 	}
 
+    public function showByTag($name){
+
+     	$page = Input::get('page');
+		$data = $this->course->getByTag($page, 6, $name );
+		$courses = Paginator::make($data->items, $data->totalItems, 6);
+		return View::make('hello', compact('courses') );
+	}
+
+
 
 
 	/**
@@ -88,7 +97,8 @@ class CoursesController extends \BaseController {
 	{
 
 		$course = $this->course->findById($id);
-		return View::make('courses.edit', compact('course'));
+        $category = 2;
+		return View::make('courses.edit', compact('course', 'category'));
 
 	}
 
@@ -103,9 +113,9 @@ class CoursesController extends \BaseController {
 	public function update($id)
 	{
 
-		$course = $this->course->findById($id);
-		$course->fill(Input::all());
-		return View::make('courses.viewCourse', compact('course'));
+
+		$course = $this->course->update($id, Input::all());
+		return View::make('courses.show', compact('course'));
 
 
 	}

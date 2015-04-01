@@ -1,9 +1,14 @@
 <?php
 
-use Eloquent;
-
 class Category extends Eloquent {
 
-	protected $fillable = [];
+	protected $guarded = [];
+
+	public function courses(){
+
+		return $this->belongsToMany('Course');
+	}
+
+
 
 }

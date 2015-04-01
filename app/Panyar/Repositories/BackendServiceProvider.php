@@ -9,8 +9,11 @@ class BackendServiceProvider extends ServiceProvider{
 		$this->app->bind('Panyar\Repositories\CoursesRepositoryInterface', 
 			 		    'Panyar\Repositories\CoursesRepository');
 
+	    $this->app->bind('Panyar\Repositories\CategoryRepositoryInterface',
+			 		    'Panyar\Repositories\CategoryRepository');
 
-        $this->app->bind('Panyar\Repositories\UserRepositoryInterface',
+	    $this->app->bind('Panyar\Repositories\UserRepositoryInterface',
 			 		    'Panyar\Repositories\UserRepository');
-	}
+
+}
 }

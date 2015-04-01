@@ -17,8 +17,7 @@ class CoursesTableSeeder extends Seeder{
                 'startDate' => $faker->date(),
                 'endDate' => $faker->date(),
                 'fee' => $faker->numberBetween(1000, 100000),
-                'photo' => $faker->image($dir = "/home/xikang/Public/LaraPanyar/public/images",
-                                               $width = 640, $height = 480),
+                'photo' => $faker->sentence(2),
                 'user_id' => $faker->numberBetween(1, 10)
 
             ]);

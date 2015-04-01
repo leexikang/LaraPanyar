@@ -3,7 +3,7 @@
 var main = function(){
 
 	$(".datepicker").each(function(){
-		$(this).datepicker();
+		$(this).datepicker({dateFormat: "yy-mm-dd"});
 	});
 
 	$(".timepicker").each(function(){
