@@ -6,6 +6,8 @@ class CoursesTableSeeder extends Seeder{
 
 		Course::truncate();
 		$faker = Faker::create();
+        $userId = User::lists('id');
+        $categoryId = Category::lists('id');
 		foreach ( range(1, 10) as $index){
 
 			Course::create([
@@ -18,7 +20,8 @@ class CoursesTableSeeder extends Seeder{
                 'endDate' => $faker->date(),
                 'fee' => $faker->numberBetween(1000, 100000),
                 'photo' => $faker->sentence(2),
-                'user_id' => $faker->numberBetween(1, 10)
+                'user_id' => $faker->randomElement($userId),
+                'category_id' => $faker->randomElement($categoryId)
 
             ]);
 		}
@@ -35,7 +38,8 @@ class CoursesTableSeeder extends Seeder{
 				'endDate' => $faker->date(),
 				'fee' => $faker->numberBetween(1000, 100000),
 				'photo' => $faker->sentence(2),
-				'user_id' => 11
+				'user_id' => 11,
+                'category_id' => $faker->randomElement($categoryId)
 
 				]);
 		}

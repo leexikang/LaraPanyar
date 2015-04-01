@@ -70,9 +70,9 @@
 
  			<div class="form-group ">
 
-					{{ Form::label('category', 'Category', array('class' => 'col-md-4 control-label')) }}
+					{{ Form::label('category_id', 'Category', array('class' => 'col-md-4 control-label')) }}
 					<div class="col-md-7 col-md-offset-1">
-                        {{ Form::select('category', Category::lists('name', 'id'), $category, array('class' => 'form-control') ) }}
+                        {{ Form::select('category_id', Category::lists('name', 'id'), null, array('class' => 'form-control') ) }}
 					</div>
 				</div>
 

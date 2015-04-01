@@ -5,7 +5,7 @@ class Category extends \Eloquent {
 
 	public function courses(){
 
-		return $this->belongsToMany('Course');
+		return $this->hasMany('Course');
 		
 	}
 }

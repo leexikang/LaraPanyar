@@ -97,8 +97,7 @@ class CoursesController extends \BaseController {
 	{
 
 		$course = $this->course->findById($id);
-        $category = 2;
-		return View::make('courses.edit', compact('course', 'category'));
+		return View::make('courses.edit', compact('course'));
 
 	}
 
