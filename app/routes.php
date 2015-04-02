@@ -25,6 +25,10 @@ Route::get('/logout', "SessionController@destroy");
 Route::resource("session", "SessionController");
 Route::resource("users", "UsersController");
 
+Route::get("courses/{course}",
+    ["as" => "courses.show",
+        "uses" => "CoursesController@show"]
+);
 Route::group(array('before' => 'auth'), function(){
 Route::get("/{users}/courses", [
 			"as" => "users.courses",
@@ -41,6 +45,8 @@ Route::get("/courses/create",[
 	]);
 Route::resource("courses", "CoursesController");
 });
+
+
 
 
 Route::get("/user/profile", function(){

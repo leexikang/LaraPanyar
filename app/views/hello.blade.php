@@ -13,7 +13,7 @@
 				<span> {{ $course->name }} </span><br/>
 				<span> {{ $course->startTime}} To {{ $course->endTime}} </span><br/>
 				<span> {{ $course->startDate}} To {{$course->endDate}}</span><br/>
-				<button class="btn btn-default"> {{ link_to_action("UsersController@show", $name = $course['user']->name, $name) }}</button>
+				<span> Center: {{ link_to_action("UsersController@show", $name = $course['user']->name, $name) }}</span><br/>
 				<button class="btn btn-default"> {{ link_to_action("CoursesController@show", "View Details", $course->id )}} </button> <br/><br/>
 				</div>
 				@endforeach
