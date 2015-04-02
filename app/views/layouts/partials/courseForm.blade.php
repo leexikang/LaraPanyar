@@ -76,16 +76,30 @@
 					</div>
 				</div>
 
-	
-			<div class="form-group">
-					{{ Form::label('startDate', 'Start Date:', array('class' => 'col-md-4 control-label')) }}
-					<div class="col-md-7 col-md-offset-1">
-						{{ Form::text('startDate', null, array('class' => 'form-control datepicker'))}}
-						<span>{{ $errors->first('startDate') }}</span>
-					</div>	
-				</div>
 
-				<div class="form-group">
+
+    <div class="form-group">
+        {{ Form::hidden('week', null, array("id" => "week") ) }}
+        {{ Form::label('week1', 'Week', array('class' => 'col-md-4 control-label')) }}
+        <div class="col-md-7 col-md-offset-1">
+            <span class="btn btn-default btn-week"> Sun </span>
+            <span class="btn btn-default btn-week"> Mon </span>
+            <span class="btn btn-default btn-week"> Tue </span>
+            <span class="btn btn-default btn-week"> Wed </span>
+            <span class="btn btn-default btn-week"> Thu </span>
+            <span class="btn btn-default btn-week"> Fri </span>
+            <span class="btn btn-default btn-week"> Sat </span>
+            <br/><br/>
+        </div>
+        <div class="form-group">
+            {{ Form::label('startDate', 'Start Date:', array('class' => 'col-md-4 control-label')) }}
+            <div class="col-md-7 col-md-offset-1">
+                {{ Form::text('startDate', null, array('class' => 'form-control datepicker'))}}
+                <span>{{ $errors->first('startDate') }}</span>
+            </div>
+        </div>
+
+        <div class="form-group">
 					{{ Form::label('endDate', 'End Date:', array('class' => 'col-md-4 control-label')) }}
 					<div class="col-md-7 col-md-offset-1">
 						{{ Form::text('endDate', null, array('class' => 'form-control datepicker'))}}

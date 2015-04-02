@@ -18,12 +18,12 @@
                     <li> <a href="{{ route('users.courses', $name)}} ">
                             <span class="glyphicon glyphicon-folder-open"></span>
                             View Courses </a></li>
-                    <li><a href="{{ route('courses.create', $name)}}">
+                    <li><a href="{{ route('courses.create')}}">
                             <span class="glyphicon glyphicon-plus"> </span>
                             Create Course </a></li>
                     <li><a href="{{ route('users.edit', $name)}}">
                             <span class="glyphicon glyphicon-edit"> </span>
-                            Create Course </a></li>
+                            Edit Profile</a></li>
                     <li class="divider"></li>
                     <li> <a href=" {{ url('/logout') }} "><span class="glyphicon glyphicon-off"></span> Logout</a></li>
                 </ul>
