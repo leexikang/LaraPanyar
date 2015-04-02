@@ -19,7 +19,7 @@ class CoursesTableSeeder extends Seeder{
                 'startDate' => $faker->date(),
                 'endDate' => $faker->date(),
                 'fee' => $faker->numberBetween(1000, 100000),
-                'photo' => $faker->sentence(2),
+                'photo' => $faker->numberBetween(1, 10) . ".jpg",
                 'user_id' => $faker->randomElement($userId),
                 'category_id' => $faker->randomElement($categoryId)
 
@@ -37,7 +37,7 @@ class CoursesTableSeeder extends Seeder{
 				'startDate' => $faker->date(),
 				'endDate' => $faker->date(),
 				'fee' => $faker->numberBetween(1000, 100000),
-				'photo' => $faker->sentence(2),
+				'photo' => $faker->numberBetween(1, 10) . ".jpg",
 				'user_id' => 11,
                 'category_id' => $faker->randomElement($categoryId)
 
