@@ -27,13 +27,15 @@
   			<dd> {{ $course['user']->address }} </dd><br/>
   			<dt> Email: </dt>
   			<dd> {{ $course['user']->email }} </dd><br/>
+            <dt> Week: </dt>
+            <dd> {{ $course->week }} </dd><br/>
   			<dt> Note: </dt>
   			<dd> {{ $course->note }} </dd>
 		</dl>
 		<h2> Center Detail</h2>
 		<p class='text-justify'> {{ $course['user']->intro }} </p>
 
-            @if(Auth::check())
+            @if(Auth::check() && $course['user']->name == Auth::user()->name)
             {{ link_to_action("CoursesController@edit", "Edit Course", $course->id , ['class' => 'btn btn-panyar'] )}}
             @endif
 

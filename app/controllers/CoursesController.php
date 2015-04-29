@@ -57,7 +57,6 @@ class CoursesController extends \BaseController {
 	 */
 	public function store()
 	{
-        return Input::all();
 		 if(   $this->validator->validate(Input::all() ) ){
 
 		 	return Redirect::route("courses.create")->withErrors($this->validator->errors())->withInput();

@@ -30,6 +30,7 @@ Class CoursesRepository implements CoursesRepositoryInterface{
         $course->endDate = $input['endDate'];
         $course->fee = $input['fee'];
         $course->category_id = $input['category_id'];
+        $course->week = $input['week'];
 
 
         if( isset($input['image']) ){

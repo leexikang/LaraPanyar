@@ -10,8 +10,9 @@
 			<img src="{{ asset('images/' .$course->photo) }}" class="img-responsive"><br/><br/>
 			<span> {{ $course->name }} </span><br/>
 			<span> {{ $course->startTime }} to {{$course->endTime}} </span><br/>
-			<span> {{ $course->startDate }} to {{ $course->endDate }}</span><br/>
-			<span> {{ link_to_route("courses.show", 'View Details', $course->id )}} </span> <br/>
+			<span> {{ $course->startDate }} to {{ $course->endDate }}</span><br/><br/>
+            <button class="btn btn-default"> {{ link_to_action("CoursesController@show", "View Details", $course->id )}} </button> <br/><br/>
+
 		</div>
 		@endforeach 
 

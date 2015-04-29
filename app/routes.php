@@ -25,15 +25,13 @@ Route::get('/logout', "SessionController@destroy");
 Route::resource("session", "SessionController");
 Route::resource("users", "UsersController");
 
+
 Route::get("courses/create",
 ["as" => "courses.create",
 "uses" => "CourseController@create"])
 ->before("auth");
 
-Route::get("courses/{courses}",
-    ["as" => "courses.show",
-        "uses" => "CoursesController@show"]
-);
+
 Route::group(array('before' => 'auth'), function(){
 Route::get("/{users}/courses", [
 			"as" => "users.courses",
@@ -44,11 +42,17 @@ Route::get("/{users}/profile", [
 			"as" => "users.profile",
 			"uses" => "UsersController@show"
 			]);
-Route::resource("courses", "CoursesController");
+
+    Route::resource("courses", "CoursesController");
 });
 
 
 
+
+Route::get("courses/{courses}",
+    ["as" => "courses.show",
+    "uses" => "CoursesController@show"
+]);
 
 Route::get("/user/profile", function(){
 	$user = User::all();
