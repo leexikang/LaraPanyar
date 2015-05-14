@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 
 class CreateCategoriesTable extends Migration {
 
-	/**
+	/**j
 	 * Run the migrations.
 	 *
 	 * @return void
