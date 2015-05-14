@@ -33,7 +33,9 @@
 		<h2> Center Detail</h2>
 		<p class='text-justify'> {{ $course['user']->intro }} </p>
 
-    	{{ link_to_action("CoursesController@edit", "Edit Course", $course->id , ['class' => 'btn btn-panyar'] )}}	
+            @if(Auth::check())
+            {{ link_to_action("CoursesController@edit", "Edit Course", $course->id , ['class' => 'btn btn-panyar'] )}}
+            @endif
 
 		</div>
 	</div>
